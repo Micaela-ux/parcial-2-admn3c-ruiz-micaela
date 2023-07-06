@@ -1,21 +1,20 @@
 <template>
-<v-app>
-  <div class="about pt-4">
-    <h1>Ingresar un menú</h1>
-  </div>
+    <v-container>
 
-    <IngresarMenu></IngresarMenu>
- </v-app>
+      <IngresarMenu></IngresarMenu>
+
+    </v-container>
 </template>
 
-
 <script>
-import IngresarMenu from '@/components/IngresarMenu.vue';
+  import IngresarMenu from '@/components/IngresarMenu';
 
-export default {
-  name: 'HomeView',
-  components: {
-    IngresarMenu,
+  export default {
+    name: 'IngresarView',
+    
+    components: {
+      IngresarMenu,
+    }
   }
-}
 </script>
+
