@@ -1,72 +1,90 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="ligth"
-      white
-    >
-      <div class="d-flex align-center">
-        <span>MS</span>
-      </div>
+  
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list>
+        <v-list-item link to="/">
+          <v-list-item-icon>
+            <v-icon>mdi-view-list</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Mi menú semanal</v-list-item-title>
+        </v-list-item>
 
-      <v-spacer>
+        <v-list-item link to="/ingresar">
+          <v-list-item-icon>
+            <v-icon>mdi-plus-circle</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Ingresar un menú</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     
-      </v-spacer>
-
-      <v-btn
-        text
-      >
-        <span class="mr-2">Iniciar sesión</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title><span>MS</span></v-toolbar-title>
     </v-app-bar>
 
     <v-main class="text-center">
-        
       
-          <v-list-item-content>
-              <v-list-item-title>
-                <router-link to="/">
-                Home
-                </router-link>
-              </v-list-item-title>
-            </v-list-item-content>
+      <v-container class="header">
+        <h1>Mi menú semanal</h1>
+      
+      </v-container>
 
-            <v-list-item-content>
-              <v-list-item-title>
-                <router-link to="/ingresar">
-                 Ingresar
-                </router-link>
-              </v-list-item-title>
-            </v-list-item-content>
-          
-
-         <!-- <v-list-item link to="/ingresar">
-            <v-list-item-title>Ingresar</v-list-item-title>
-          </v-list-item>
--->
-
-       
+      <v-container class="contenedor">
+        <router-view/>
+      </v-container>
+  
     </v-main>
 
-   
-
-    <v-container>
-       <router-view/>
-    </v-container>
+    <v-footer>
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            md="6"
+          >
+              <p> Copyright 2023 Menú Semanal. Todos los derechos reservados.</p>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+          >
+              <p class="text-end">
+                  Diseñado por 
+                <strong>Ruiz Micaela</strong> 
+              </p>
+          </v-col>
+          </v-row>
+      </v-container>
+    </v-footer>
 
   </v-app>
 </template>
 
 <script>
 
+  export default {
+    name: 'App',
 
-export default {
-  name: 'App',
+    data: () => ({
+        drawer: false,
+       
+    }),
+  };
 
-  data: () => ({
-     //
-  }),
-};
 </script>
 
+<style>
+
+  .header{
+    padding: 5%;
+    background-color: #8c0202;
+    text-align: center;
+    color: white;
+  }
+  .contenedor{
+    padding:15px;
+  }
+
+</style>
